@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const pilotRouter = require('./controllers/pilots')
+const droneRouter = require('./controllers/drones')
 const middleware = require('./utils/middleware')
 
 app.use(express.json())
 app.use(cors())
-app.use('/api/pilots', pilotRouter)
+app.use('/api/drones', droneRouter)
 
 app.use(middleware.unknownEndpoint)
 
