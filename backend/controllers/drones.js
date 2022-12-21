@@ -4,6 +4,7 @@ const droneRouter = require('express').Router()
 const calculateDistance = require('../helpers/calculateDistance')
 const createPilot = require('../helpers/createPilot')
 const scheduleDelete = require('../helpers/deleteFromDb')
+const removeDuplicates = require('../helpers/removeDuplicates')
 
 let violationDrones = []
 
@@ -39,6 +40,8 @@ const getViolations = async () => {
         }
 
         violationDrones.push(droneObject)
+        // redundancy for weird cases where duplicates have appeared in the array
+        violationDrones = removeDuplicates(violationDrones)
       }
     }
   })
