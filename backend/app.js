@@ -7,6 +7,7 @@ const middleware = require('./utils/middleware')
 app.use(express.json())
 app.use(cors())
 app.use('/api/drones', droneRouter)
+app.use(express.static('build'))
 
 app.use(middleware.unknownEndpoint)
 
