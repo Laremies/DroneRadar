@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+h1, h2 {
+  text-align: center;
+  color: #355c7d;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  display: inline;
+}
+
+a:visited {
+  color: #355c7d;
+}
+
+.pop-out {
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+}
+
+.pop-out:hover {
+  transform: scale(1.1);
+}

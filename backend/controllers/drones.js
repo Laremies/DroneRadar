@@ -21,8 +21,6 @@ const getViolations = async () => {
 
     if (distance <= radius) {
       const serialNum = drone.serialNumber._text
-      console.log(serialNum)
-      console.log(distance)
 
       const violationDrone = violationDrones.find(d => d.serialNumber === serialNum)
       if (violationDrone) {
@@ -39,7 +37,7 @@ const getViolations = async () => {
           time: Date.now(),
           pilot: pilotObject
         }
-        console.log(droneObject)
+
         violationDrones.push(droneObject)
       }
     }
