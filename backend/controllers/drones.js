@@ -23,8 +23,8 @@ const getViolations = async () => {
       const serialNum = drone.serialNumber._text
       console.log(serialNum)
       console.log(distance)
-      const violationDrone = violationDrones.find(d => d.serialNumber === serialNum)
 
+      const violationDrone = violationDrones.find(d => d.serialNumber === serialNum)
       if (violationDrone) {
         violationDrone.time = Date.now()
         if (distance < violationDrone.closestDistance) {
