@@ -3,7 +3,7 @@ const convert = require('xml-js')
 const droneRouter = require('express').Router()
 const calculateDistance = require('../helpers/calculateDistance')
 const createPilot = require('../helpers/createPilot')
-const scheduleDelete = require('../helpers/deleteFromDb')
+const deleteOldDrones = require('../helpers/deleteOldDrones')
 const removeDuplicates = require('../helpers/removeDuplicates')
 
 let violationDrones = []
@@ -26,6 +26,7 @@ const getViolations = async () => {
       const violationDrone = violationDrones.find(d => d.serialNumber === serialNum)
       if (violationDrone) {
         violationDrone.time = Date.now()
+
         if (distance < violationDrone.closestDistance) {
           violationDrone.closestDistance = distance
         }
@@ -45,16 +46,14 @@ const getViolations = async () => {
       }
     }
   })
-    
+  violationDrones = deleteOldDrones(violationDrones)
 }
 
 
-droneRouter.get('/', async (request, response) => {
-  violationDrones.forEach(drone => {
-    scheduleDelete(drone.serialNumber, violationDrones)
-  })
+setInterval(getViolations, 1000)
 
-  await getViolations()
+droneRouter.get('/', (request, response) => {
+  
   response.json(violationDrones)
 })
 
