@@ -1,4 +1,4 @@
-// Helper function to calculate the drone's distance to the middle of the NDZ.
+// Helper function to calculate the drone's distance to the middle of the NDZ
 const calculateDistance = (posX, posY) => {
   const center = 250000
   // Pythagoras theorem

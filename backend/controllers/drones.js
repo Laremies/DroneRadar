@@ -22,8 +22,9 @@ const getViolations = async () => {
 
     if (distance <= radius) {
       const serialNum = drone.serialNumber._text
-
       const violationDrone = violationDrones.find(d => d.serialNumber === serialNum)
+
+      // If drone already exists, update its time and closest distance, else create a new drone.
       if (violationDrone) {
         violationDrone.time = Date.now()
 
@@ -53,7 +54,6 @@ const getViolations = async () => {
 setInterval(getViolations, 1000)
 
 droneRouter.get('/', (request, response) => {
-  
   response.json(violationDrones)
 })
 
