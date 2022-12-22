@@ -9,15 +9,13 @@ const PilotTable = ({ drones }) => {
     prettierDrones = drones.sort((a, b) => b.time - a.time)
     prettierDrones = drones.map(drone => {
       const time = new Date(drone.time)
-      const formattedTime = time.toLocaleTimeString('en-US', timeOptions)
-
+      const formattedTime = time.toLocaleTimeString('en-Gb', timeOptions)
       return {
         ...drone,
         time: formattedTime,
         closestDistance: (drone.closestDistance / 1000).toFixed(2)
       }
     })
-
   }
   
   return (
