@@ -12,4 +12,4 @@ The full problem description can be found here: [Reaktor pre-assignment 2023](ht
 - Express
 - Axios
 
-TO-DO: Implement a database with MongoDB for example, so that the data doesn't reset if connection to https://assignments.reaktor.com/birdnest/drones fails.
+TO-DO: Implement a database with MongoDB for example, so that the data doesn't reset if connection to https://assignments.reaktor.com/birdnest/drones fails and the server restarts.
