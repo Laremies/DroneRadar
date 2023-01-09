@@ -51,7 +51,7 @@ const getViolations = async () => {
 }
 
 
-setInterval(getViolations, 1000)
+setInterval(getViolations, 2000)
 
 droneRouter.get('/', (request, response) => {
   response.json(violationDrones)
