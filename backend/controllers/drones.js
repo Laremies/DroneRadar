@@ -35,14 +35,16 @@ const getViolations = async () => {
         } else {
           const pilotObject = await createPilot(serialNum)
 
-          const droneObject = {
-            serialNumber: serialNum,
-            closestDistance: distance,
-            time: Date.now(),
-            pilot: pilotObject
+          if (pilotObject) {
+            const droneObject = {
+              serialNumber: serialNum,
+              closestDistance: distance,
+              time: Date.now(),
+              pilot: pilotObject
+            }
+            violationDrones.push(droneObject)
           }
-
-          violationDrones.push(droneObject)
+          
           // for redundancy and race condition avoidance when using an array for storing data
           violationDrones = removeDuplicates(violationDrones)
         }
