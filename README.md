@@ -14,4 +14,4 @@ The full problem description can be found here: [Reaktor pre-assignment 2023](ht
 
 ## TO-DO 
 - Websocket
-- Implement a database with MongoDB for example, so that the data doesn't reset if connection to https://assignments.reaktor.com/birdnest/drones fails and the server restarts.
+- Implement a database with MongoDB for example, so that the data doesn't reset if connection to the server fails and the application restarts.
