@@ -43,7 +43,7 @@ const getViolations = async () => {
           }
 
           violationDrones.push(droneObject)
-          // redundancy for redundancy and race condition avoidance when using an array for storing data
+          // for redundancy and race condition avoidance when using an array for storing data
           violationDrones = removeDuplicates(violationDrones)
         }
       }
